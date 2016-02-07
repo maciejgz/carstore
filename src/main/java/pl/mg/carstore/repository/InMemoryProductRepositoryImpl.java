@@ -31,10 +31,16 @@ public class InMemoryProductRepositoryImpl implements ProductRepository {
         bmw.setManufacturer("bmw");
         bmw.setUnitsInStock(90);
 
+        Product bmw2 = new Product("bmw2", "z4", new BigDecimal(70));
+        bmw2.setDescription("bmw2 z4 \'09");
+        bmw2.setCategory("cabrio");
+        bmw2.setManufacturer("bmw");
+        bmw2.setUnitsInStock(5);
+
         products.add(audi);
         products.add(bmw);
         products.add(audiQ7);
-
+        products.add(bmw2);
     }
 
     @Override
@@ -56,6 +62,18 @@ public class InMemoryProductRepositoryImpl implements ProductRepository {
             throw new IllegalArgumentException("Searched ID cannot be null");
         }
         return productById;
+    }
+
+    @Override
+    public List<Product> getProductByCategory(String category) {
+        List<Product> productsByCategory = new ArrayList<>();
+
+        for (Product product : products) {
+            if (product.getCategory().equals(category)) {
+                productsByCategory.add(product);
+            }
+        }
+        return productsByCategory;
     }
 
 }

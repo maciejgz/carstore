@@ -20,9 +20,9 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public Product getProductById(String productId) {
-       return productRepository.getProductById(productId);
+        return productRepository.getProductById(productId);
     }
-    
+
     public ProductRepository getProductRepository() {
         return productRepository;
     }
@@ -32,5 +32,9 @@ public class ProductServiceImpl implements ProductService {
         this.productRepository = productRepository;
     }
 
+    @Override
+    public List<Product> getProductsByCategory(String category) {
+        return productRepository.getProductByCategory(category);
+    }
 
 }

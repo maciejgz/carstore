@@ -8,4 +8,5 @@ public interface ProductRepository {
 
     public List<Product> getAllProducts();
     public Product getProductById(String id); 
+    public List<Product> getProductByCategory(String category);
 }

@@ -7,6 +7,9 @@ import pl.mg.carstore.domain.Product;
 public interface ProductService {
 
     public List<Product> getAllProducts();
+
     public Product getProductById(String productId);
-        
+
+    List<Product> getProductsByCategory(String category);
+
 }
